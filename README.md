@@ -8,9 +8,11 @@ This project is intended as a way to get to know "Great Expectations" Python lib
 
 ## What can be achived?
 
-The following notebook has the steps you can follow to validate a dataset:
+The following notebooks have the steps you can follow to validate a dataset:
 
 - using_validator.ipynb
+
+- using_only_validator.ipynb
 
 You will get the results of validating a dataset against different criteria. The pattern can be applied to build a testing suite against data assets in your pipeline, being them source data as well as transformed data.
 
@@ -71,6 +73,30 @@ This notebook allows:
 6) Showing the Result in HTML format.
 
 7) The manual modification of the Expectations in the Suite.
+
+## About the `using_only_validator` notebook (No need for manual editing)
+
+This notebook allows:
+
+1) The creation of a data context that is persistent across python sessions. "One of the primary responsibilities of the DataContext is managing CRUD operations for core GX objects" .(GX = Great Expectations).
+
+2) The creation of a validator against a data source. The validator also contains an Expectation Suite, which is the placeholder for all the things you expect a certain data asset to conform to. Those things you expect are called Expectations.
+
+    In this case, the expectation suite has the following expectations:
+
+    - expect_table_columns_to_match_ordered_list
+
+    - expect_column_values_to_be_in_set
+
+    - expect_column_values_to_not_be_null
+
+3) The creation of a Checkpoint that will perform validations from an Expectation Suite. The Checkpoint is added to the context for being used when needed.
+
+4) The recovery of the Checkpoint from the context.
+
+5) Obtaining a Result from running the Checkpoint.
+
+6) Showing the Result in HTML format.
 
 ## Virtual environment
 
